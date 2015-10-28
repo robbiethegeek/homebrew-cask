@@ -1,9 +1,11 @@
-class MendeleyDesktop < Cask
-  version '1.12.1'
-  sha256 '81418c72dee7b6f19e0d579c903bef3d15be0f08eb96c1c0b5c9f32cb7cf062c'
+cask :v1 => 'mendeley-desktop' do
+  version '1.15'
+  sha256 '57d8338649d6efcc7817be31ce69e2633810a3352c78cf95eb5cdf84dee64dae'
 
   url "http://desktop-download.mendeley.com/download/Mendeley-Desktop-#{version}-OSX-Universal.dmg"
-  homepage 'http://www.mendeley.com/'
+  name 'Mendeley'
+  homepage 'https://www.mendeley.com/'
+  license :gratis
 
-  link 'Mendeley Desktop.app'
+  app 'Mendeley Desktop.app'
 end

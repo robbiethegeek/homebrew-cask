@@ -1,14 +1,18 @@
-class Parse < Cask
-  version 'latest'
+cask :v1_1 => 'parse' do
+  version :latest
   sha256 :no_check
 
-  url 'https://www.parse.com/downloads/cloud_code/parse'
+  url 'https://parse.com/downloads/cloud_code/cli/parse-osx/latest'
+  name 'Parse'
   homepage 'https://parse.com'
+  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
 
-  binary 'parse'
-  container_type :naked
+  depends_on :formula => 'unar'
 
-  after_install do
-    system "chmod", "755", "#{destination_path}/#{title}"
+  container :type => :generic_unar # The downloaded file doesn't have a .gz suffix, so specifying :gzip here won't work.
+  binary 'parse-latest', :target => 'parse'
+
+  postflight do
+    set_permissions "#{staged_path}/parse-latest", '0755'
   end
 end

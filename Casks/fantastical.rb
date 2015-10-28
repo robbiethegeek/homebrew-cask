@@ -1,15 +1,19 @@
-class Fantastical < Cask
-  version '1.3.15'
-  sha256 'df76970ba48d831e99f1d1564f4076271ca48476ed8af5b8996341481e8bfb74'
+cask :v1 => 'fantastical' do
+  version '2.1.2'
+  sha256 '44a709ab1eec68e3a9342cf75ca6dc354c46bfbbc9adaced9903169919e82d47'
 
-  url 'http://cdn.flexibits.com/Fantastical_1.3.15.zip'
-  appcast 'https://flexibits.com/fantastical/appcast.php'
-  homepage 'http://flexibits.com/fantastical'
+  url "http://cdn.flexibits.com/Fantastical_#{version}.zip"
+  appcast 'https://flexibits.com/fantastical/appcast2.php',
+          :sha256 => 'd823ba2dcd910df0dc869756cd447a8f89e51c72768525e225e97f27d813ccc4'
+  name 'Fantastical'
+  homepage 'https://flexibits.com/fantastical'
+  license :freemium
 
-  link 'Fantastical.app'
+  app 'Fantastical 2.app'
 
-  after_install do
-    # Don't ask to move the app bundle to /Applications
-    system '/usr/bin/defaults', 'write', 'com.flexibits.fantastical', 'moveToApplicationsFolderAlertSuppress', '-bool', 'true'
+  postflight do
+    suppress_move_to_applications
   end
+
+  zap :delete => '~/Library/Preferences/com.flexibits.fantastical.plist'
 end

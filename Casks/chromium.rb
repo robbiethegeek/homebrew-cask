@@ -1,10 +1,12 @@
-class Chromium < Cask
-  version '36.0.1985.143'
-  sha256 'd1b4380ce3ab87ad2e414cfe8bdf7ea21779edeb711323a8969101d700209744'
+cask :v1 => 'chromium' do
+  version :latest
+  sha256 :no_check
 
-  url "https://downloads.sourceforge.net/sourceforge/osxportableapps/ChromiumOSX_#{version}.dmg"
-  appcast 'http://osxportableapps.sourceforge.net/chromium/chrcast.xml'
-  homepage 'http://www.freesmug.org/chromium'
+  # appspot.com is the official download host per the vendor homepage
+  url 'https://download-chromium.appspot.com/dl/Mac'
+  name 'Chromium'
+  homepage 'https://www.chromium.org/Home'
+  license :oss
 
-  link 'Chromium.app'
+  app 'chrome-mac/Chromium.app'
 end

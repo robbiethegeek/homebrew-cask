@@ -1,9 +1,18 @@
-class Infinit < Cask
-  version 'latest'
+cask :v1 => 'infinit' do
+  version :latest
   sha256 :no_check
 
-  url 'http://download.infinit.io/macosx/10.8/Infinit-ia64.dmg'
-  homepage 'https://infinit.io/'
+  url 'https://download.infinit.io/macosx/app/Infinit.dmg'
+  name 'Infinit'
+  homepage 'http://www.infinit.io/'
+  license :gratis
 
-  link 'Infinit.app'
+  app 'Infinit.app'
+
+  zap :delete => [
+                  '~/Library/Application Support/Infinit',
+                  '~/Library/Application Support/InfinitApplication',
+                  '~/Library/Caches/io.infinit.InfinitApplication',
+                  '~/Library/Preferences/io.infinit.InfinitApplication.plist',
+                 ]
 end

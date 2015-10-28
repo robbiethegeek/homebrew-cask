@@ -1,9 +1,23 @@
-class Launchbar < Cask
-  version '6.1'
-  sha256 '0770e0961e97ddd36c8d0b62dce44296f159daecf69b618986e0974795dc5479'
+cask :v1 => 'launchbar' do
 
-  url "http://www.obdev.at/downloads/launchbar/LaunchBar-#{version}.dmg"
-  homepage 'http://www.obdev.at/products/launchbar/'
+  if MacOS.release <= :mountain_lion
+    version '5.6.4'
+    sha256 '22a1ec0c10de940e5efbcccd18b8b048d95fb7c63213a01c7976a76d6be69a4d'
+    url "https://www.obdev.at/downloads/launchbar/legacy/LaunchBar-#{version}.dmg"
+  else
+    version '6.5'
+    sha256 '6b92bfaadcb46956220343bd6b6741a3b30e66817a2060471cd1e5551209e071'
+    url "https://www.obdev.at/downloads/launchbar/LaunchBar-#{version}.dmg"
+  end
 
-  link 'LaunchBar.app'
+  name 'LaunchBar'
+  homepage 'https://www.obdev.at/products/launchbar/'
+  license :commercial
+
+  app 'LaunchBar.app'
+
+  zap :delete => [
+                  '~/Library/Preferences/at.obdev.LaunchBar.plist',
+                  '~/Library/Application Support/LaunchBar',
+                 ]
 end

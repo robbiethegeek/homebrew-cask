@@ -1,9 +1,12 @@
-class Appium < Cask
-  version '1.2.0'
-  sha256 'c13135fc8c1a568950b3bea3ea9ff9823df3ef5fcce4e090b38da9593ae4de38'
+cask :v1 => 'appium' do
+  version '1.4.8'
+  sha256 'c9dbebe84794dc17278a2229d873ae68405471ec24c6c71f3b8fbf94d4c7dba7'
 
-  url 'https://bitbucket.org/appium/appium.app/downloads/appium-1.2.0.dmg'
+  # bitbucket.org is the official download host per the vendor homepage
+  url "https://bitbucket.org/appium/appium.app/downloads/appium-#{version}.dmg"
+  name 'Appium'
   homepage 'http://appium.io'
+  license :apache
 
-  link 'Appium.app'
+  app 'Appium.app'
 end

@@ -1,9 +1,13 @@
-class Beardedspice < Cask
-  version '0.2.1'
-  sha256 '28233946d266a95c390f2393fd80fdd1a82c89499ebae7014d797c75cb28c110'
+cask :v1 => 'beardedspice' do
+  version '1.2'
+  sha256 '0498f7259dce39003221fe0de2080aac3b9d7306d2da6fff6c2bf04d340ae7c6'
 
-  url "https://github.com/beardedspice/beardedspice/raw/releases/BeardedSpice-#{version}.tar.gz"
+  # github.com is the official download host per the vendor homepage
+  url "https://github.com/beardedspice/beardedspice/releases/download/v#{version}/BeardedSpice-#{version}.zip"
+  appcast 'https://github.com/beardedspice/beardedspice/releases.atom'
+  name 'BeardedSpice'
   homepage 'http://www.beardedspice.com'
+  license :oss
 
-  link 'BeardedSpice.app'
+  app 'BeardedSpice.app'
 end

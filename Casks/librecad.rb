@@ -1,9 +1,19 @@
-class Librecad < Cask
-  version '2.0.4'
-  sha256 'f9a2e56c5a4b79275d45d5578f728fbe3e981e04f550229579de71b0e8ce0604'
+cask :v1 => 'librecad' do
+  version '2.0.8'
 
-  url 'https://downloads.sourceforge.net/project/librecad/OSX/2.0.4/LibreCAD-2.0.4.dmg'
+  if MacOS.release <= :mavericks
+    # sourceforge.net is the official download host per the vendor homepage
+    url "http://downloads.sourceforge.net/project/librecad/OSX/#{version}/LibreCAD-#{version}-Mavericks.dmg"
+    sha256 '83b33e4f8cb49eab76afbe001d521ceb59509b7fc87be396c12b8a4980192834'
+  else
+    # sourceforge.net is the official download host per the vendor homepage
+    url "http://downloads.sourceforge.net/project/librecad/OSX/#{version}/LibreCAD-#{version}-Yosemite.dmg"
+    sha256 '1c2590875deccd0915beb7da3305973140b66349474b3ef5790e17132e2918a8'
+  end
+
+  name 'LibreCAD'
   homepage 'http://librecad.org/'
+  license :gpl
 
-  link 'LibreCAD.app'
+  app 'LibreCAD.app'
 end

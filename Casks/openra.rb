@@ -1,9 +1,15 @@
-class Openra < Cask
-  version '20140722'
-  sha256 '0f9bc52de1e4569371ae643d505c66d5196a73537f6810fad2a1c49baad37995'
+cask :v1 => 'openra' do
+  version '20150919'
+  sha256 '395ab15e92cec263ca6fda3f97b3593fd7e42ab9e7b3ca23f302bc4809605761'
 
-  url 'https://github.com/OpenRA/OpenRA/releases/download/release-20140722/OpenRA-release-20140722.zip'
+  # github.com is the official download host per the vendor homepage
+  url "https://github.com/OpenRA/OpenRA/releases/download/release-#{version}/OpenRA-release-#{version}.zip"
+  appcast 'https://github.com/OpenRA/OpenRA/releases.atom'
+  name 'OpenRA'
   homepage 'http://www.openra.net/'
+  license :gpl
 
-  link 'OpenRA.app'
+  depends_on :cask => 'mono-mdk'
+
+  app 'OpenRA.app'
 end

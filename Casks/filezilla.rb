@@ -1,9 +1,24 @@
-class Filezilla < Cask
-  version '3.9.0.3'
-  sha256 'e7b642a6ebc5d785651c0c84477dd55e7e419d2094798205b814171c64fc7095'
+cask :v1 => 'filezilla' do
 
-  url "https://downloads.sourceforge.net/project/filezilla/FileZilla_Client/#{version}/FileZilla_#{version}_macosx-x86.app.tar.bz2"
+  if MacOS.release <= :snow_leopard
+    version '3.8.1'
+    sha256 '86c725246e2190b04193ce8e7e5ea89d5b9318e9f20f5b6f9cdd45b6f5c2d283'
+  else
+    version '3.14.1'
+    sha256 '5dbd1e4dbd95050b0a50edb4bccb4c99123ba4d5f6612f8c6ddc02d5c3be4476'
+  end
+
+  # sourceforge.net is the official download host per the vendor homepage
+  url "http://downloads.sourceforge.net/project/filezilla/FileZilla_Client/#{version}/FileZilla_#{version}_macosx-x86.app.tar.bz2"
+  name 'FileZilla'
   homepage 'https://filezilla-project.org/'
+  license :gpl
 
-  link 'FileZilla.app'
+  app 'FileZilla.app'
+
+  zap :delete => [
+                  '~/Library/Saved Application State/de.filezilla.savedState',
+                  '~/Library/Preferences/de.filezilla.plist',
+                 ],
+      :rmdir => '~/.config/filezilla'
 end

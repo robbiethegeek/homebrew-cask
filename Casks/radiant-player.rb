@@ -1,9 +1,12 @@
-class RadiantPlayer < Cask
-  version '1.2.1'
-  sha256 'dc1ed98170e05c430779f527191717cb412e74f398324878286df4a2bbad79d4'
+cask :v1 => 'radiant-player' do
+  version '1.4.1'
+  sha256 '42f5156eeae7a64b8c037d373bab5594d2e831a7309104fcac44a369465a108a'
 
-  url 'https://github.com/kbhomes/google-music-mac/releases/download/v1.2.1/Radiant.Player.zip'
-  homepage 'http://kbhomes.github.io/google-music-mac/'
+  url "https://github.com/kbhomes/radiant-player-mac/releases/download/v#{version}/Radiant.Player.app.zip"
+  appcast 'https://github.com/kbhomes/radiant-player-mac/releases.atom'
+  name 'Radiant Player'
+  homepage 'https://kbhomes.github.io/radiant-player-mac/'
+  license :mit
 
-  link 'Radiant Player.app'
+  app 'Radiant Player.app'
 end

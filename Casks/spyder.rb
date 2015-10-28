@@ -1,9 +1,12 @@
-class Spyder < Cask
-  version '2.3.0'
-  sha256 '1a665fffc14c04647716da6a4108b152e983603ff7fd99680bafa915e361f27e'
+cask :v1 => 'spyder' do
+  version '2.3.6'
+  sha256 'bceb41c323f8910f6e3ad113bd4adbb4d52e996602de146a482b12d57a7bdf82'
 
-  url 'https://bitbucket.org/spyder-ide/spyderlib/downloads/spyder-2.3.0.dmg'
-  homepage 'https://code.google.com/p/spyderlib/'
+  # bitbucket.org is the official download host per the vendor homepage
+  url "https://bitbucket.org/spyder-ide/spyderlib/downloads/spyder-#{version}-py2.7.dmg"
+  name 'Spyder'
+  homepage 'https://github.com/spyder-ide/spyder'
+  license :mit
 
-  link 'Spyder.app'
+  app 'Spyder-Py2.app'
 end

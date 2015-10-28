@@ -1,9 +1,13 @@
-class Moneyguru < Cask
-  version '2.7.2'
-  sha256 '9fd0f1c57a4a0ccc1dae75cf1408aa9f25c5219eb58b294933bcea3b82705d59'
+cask :v1 => 'moneyguru' do
+  version '2.9.3'
+  sha256 '5f47715fa02c5fcd6595a733b35b99bd86b3008dff2a566deb692a7abe0b21a6'
 
   url "http://download.hardcoded.net/moneyguru_osx_#{version.gsub('.', '_')}.dmg"
+  name 'moneyGuru'
+  appcast 'http://www.hardcoded.net/updates/moneyguru.appcast',
+          :sha256 => '32714462ad203d85285fd449dd472c609c8445384b579ff0dbac794e27bc8749'
   homepage 'http://www.hardcoded.net/moneyguru/'
+  license :bsd
 
-  link 'moneyGuru.app'
+  app 'moneyGuru.app'
 end

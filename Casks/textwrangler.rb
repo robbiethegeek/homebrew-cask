@@ -1,10 +1,16 @@
-class Textwrangler < Cask
-  version '4.5.10'
-  sha256 '52eb092165f86a7a6faddd9b97c75f9781ef13462fcdf9a16d919960db8613a8'
+cask :v1 => 'textwrangler' do
+  version '5.0'
+  sha256 'bba090699501a61a4592c73f5fe0eaf2e10b5f7eed5d4192b4f236491f9054cf'
 
-  url "http://ash.barebones.com/TextWrangler_#{version}.dmg"
-  appcast 'https://versioncheck.barebones.com/TextWrangler.xml'
+  url "http://ven.barebones.com/TextWrangler_#{version}.dmg"
+  appcast 'https://versioncheck.barebones.com/TextWrangler.xml',
+          :sha256 => '11eab5ef576e132926b507f89031ff34419f1b817d7ff226755ea3c79ff76af6'
+  name 'TextWrangler'
   homepage 'http://www.barebones.com/products/textwrangler'
+  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
 
-  link 'TextWrangler.app'
+  app 'TextWrangler.app'
+  binary 'TextWrangler.app/Contents/Helpers/edit'
+  binary 'TextWrangler.app/Contents/Helpers/twdiff'
+  binary 'TextWrangler.app/Contents/Helpers/twfind'
 end

@@ -1,9 +1,14 @@
-class BeatportPro < Cask
-  version '2.1.0_133'
-  sha256 'd668c8fb82be5a5402a2470f7f65df75d08bad84352a609ea694290e29df93e2'
+cask :v1 => 'beatport-pro' do
+  version '2.2.2_163'
+  sha256 '4f2803d53ce19720af93a97874590b6bad29b64b5bbb510d3a710f5e625f04f1'
 
-  url "http://pro.beatport.com/mac/#{version}/beatportpro_#{version}.dmg"
-  homepage 'http://pro.beatport.com/'
+  url "https://pro.beatport.com/mac/#{version}/beatportpro_#{version}.zip"
+  name 'Beatport'
+  name 'Beatport Pro'
+  appcast 'https://pro.beatport.com/mac/appcast.xml',
+          :sha256 => 'ddf5d7f399cc4cb49f48161f5d0e9f9c45b9def00c5d4bbce99f80ef244ba26c'
+  homepage 'https://pro.beatport.com/'
+  license :closed
 
-  link 'Beatport Pro.app'
+  app 'Beatport Pro.app'
 end

@@ -1,14 +1,14 @@
-class EclipseJee < Cask
-  version 'latest'
-  sha256 :no_check
+cask :v1 => 'eclipse-jee' do
+  version '4.5.1'
+  sha256 'efea4c0c2287e0975d5aa30db465048eab012803804a3cdabaefb1ea223eba16'
 
-  if Hardware::CPU.is_32_bit?
-    url 'http://download.eclipse.org/technology/epp/downloads/release/luna/R/eclipse-jee-luna-R-macosx-cocoa.tar.gz'
-  else
-    url 'http://download.eclipse.org/technology/epp/downloads/release/luna/R/eclipse-jee-luna-R-macosx-cocoa-x86_64.tar.gz'
-  end
+  url 'https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/1/eclipse-jee-mars-1-macosx-cocoa-x86_64.tar.gz&r=1'
+  name 'Eclipse'
+  name 'Eclipse IDE for Java EE Developers'
+  homepage 'https://eclipse.org/'
+  license :eclipse
+  depends_on :macos => '>= :leopard'
+  depends_on :arch => :x86_64
 
-  homepage 'http://eclipse.org/'
-
-  link 'eclipse/Eclipse.app'
+  app 'Eclipse.app'
 end

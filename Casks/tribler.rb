@@ -1,9 +1,13 @@
-class Tribler < Cask
-  version '6.3.1'
-  sha256 '5ec0ca3bb71105d182117ad9f7afd41a0cfc4844ac88ac7c1d5d6c4010d7d96b'
+cask :v1 => 'tribler' do
+  version '6.4.3'
+  sha256 '74b79421a91e755518c16a941f8646968d94b167d38f9a911a8f97f91de29cae'
 
+  # github.com is the official download host per the vendor homepage
   url "https://github.com/Tribler/tribler/releases/download/v#{version}/Tribler-#{version}.dmg"
+  appcast 'https://github.com/Tribler/tribler/releases.atom'
+  name 'Tribler'
   homepage 'http://www.tribler.org'
+  license :gpl
 
-  link 'Tribler.app'
+  app 'Tribler.app'
 end

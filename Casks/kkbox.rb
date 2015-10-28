@@ -1,9 +1,11 @@
-class Kkbox < Cask
-  version '5.0.10'
-  sha256 '0015c867479ab836504f973dab88f93bb3c4ce4e6e6c7287d7fdbfe3af565a50'
+cask :v1 => 'kkbox' do
+  version '5.2.60-7fa4156'
+  sha256 '1bf79ba1ae269ddea023477781a080b6a2173cb812734bbf99a5d4dda168c1e2'
 
-  url 'http://download.kkbox.com/files/KKBOX-5.0.10-ca460d0.dmg'
-  homepage 'http://www.kkbox.com/'
+  url "http://download.kkbox.com/files/KKBOX-#{version}.dmg"
+  name 'KKBOX'
+  homepage 'https://www.kkbox.com/'
+  license :commercial
 
-  link 'KKBOX.app'
+  app 'KKBOX.app'
 end

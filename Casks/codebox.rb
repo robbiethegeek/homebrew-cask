@@ -1,9 +1,11 @@
-class Codebox < Cask
-  version 'latest'
+cask :v1 => 'codebox' do
+  version :latest
   sha256 :no_check
 
   url 'https://www.codebox.io/download/mac'
+  name 'Codebox'
   homepage 'https://www.codebox.io'
+  license :apache
 
-  link 'Codebox.app'
+  app 'Codebox.app'
 end

@@ -1,9 +1,11 @@
-class Zoc < Cask
-  version '6.59'
-  sha256 'e5bab1efba9920129e7e829f255a73bf6abea443533c428ec797b787379b7827'
+cask :v1 => 'zoc' do
+  version '7.06.0'
+  sha256 '08549be9d919bae6761f4cac784ab1bbead1758e4938e130289114099ed44768'
 
-  url 'http://www.emtec.com/downloads/zoc/zoc659.dmg'
+  url "http://www.emtec.com/downloads/zoc/zoc#{version.delete('.')}.dmg"
+  name 'ZOC'
   homepage 'http://www.emtec.com/zoc/'
+  license :commercial
 
-  link 'zoc6.app'
+  app 'zoc7.app'
 end

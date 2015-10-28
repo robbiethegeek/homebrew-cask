@@ -1,13 +1,14 @@
-class Keycastr < Cask
-  version '0.8.0'
-  sha256 'ecf59a2e46a8ca450c12f426a4d41000de1c3010a5c46fe12f23fdc647f3f1e7'
+cask :v1 => 'keycastr' do
+  version 'v0.8.5'
+  sha256 '4a0ba75562608f16be2144efcdb9dfb57fc3470ef0e81df751b80a04dfcd2fb7'
 
-  url "https://github.com/downloads/RichardBronosky/keycastr/keycastr_#{version}.dmg"
-  homepage 'https://github.com/sdeken/keycastr'
+  url "https://github.com/keycastr/keycastr/releases/download/#{version}/KeyCastr.app.zip"
+  appcast 'https://github.com/keycastr/keycastr/releases.atom'
+  name 'KeyCastr'
+  homepage 'https://github.com/keycastr/keycastr'
+  license :bsd
 
-  link 'KeyCastr.app'
+  app 'KeyCastr.app'
 
-  caveats do
-    puts "For OSX 10.9 or later, you need to setup in \"Enable access for assistive devices\", see https://github.com/sdeken/keycastr/issues/5"
-  end
+  accessibility_access true
 end

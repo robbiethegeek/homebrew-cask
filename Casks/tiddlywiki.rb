@@ -1,9 +1,18 @@
-class Tiddlywiki < Cask
-  version '0.0.3'
-  sha256 'b96e44b88d6ff421b0d35644862c4e474ba7099f597f0dc8d530f467d31abd5c'
+cask :v1 => 'tiddlywiki' do
+  version '0.0.5'
 
-  url "https://github.com/Jermolene/TiddlyDesktop/releases/download/v#{version}/tiddlydesktop-mac-#{version}.zip"
+  if Hardware::CPU.is_32_bit?
+    sha256 '42512d123afe38a1ad40562fcb34c7556bf76930a96ed47ba30e98ff7fe8f76e'
+    url "https://github.com/Jermolene/TiddlyDesktop/releases/download/v#{version}/tiddlydesktop-mac32-v#{version}.zip"
+    app "TiddlyDesktop-mac32-v#{version}/TiddlyWiki.app"
+  else
+    sha256 '59d34e2fb142d776dc33d9738a8f5032274f8a580ee28bd37b35b6f288c05e65'
+    url "https://github.com/Jermolene/TiddlyDesktop/releases/download/v#{version}/tiddlydesktop-mac64-v#{version}.zip"
+    app "TiddlyDesktop-mac64-v#{version}/TiddlyWiki.app"
+    appcast 'https://github.com/Jermolene/TiddlyDesktop/releases.atom'
+  end
+
+  name 'TiddlyWiki'
   homepage 'https://github.com/Jermolene/TiddlyDesktop'
-
-  link 'TiddlyWiki.app'
+  license :bsd
 end

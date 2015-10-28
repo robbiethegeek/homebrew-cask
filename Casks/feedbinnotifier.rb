@@ -1,9 +1,12 @@
-class Feedbinnotifier < Cask
-  version '1.0.4'
-  sha256 '20f94b5cecc2b730da1cfaae3633ce41f7b6ef6b28f56b7684538394544515f8'
+cask :v1 => 'feedbinnotifier' do
+  version '2.0.0'
+  sha256 '82234ee8992e5180cfc3dac8624eb8e75047c80bb4e7e2360c71b226a211c40c'
 
-  url 'https://github.com/kmikael/FeedbinNotifier/releases/download/v1.0.4/FeedbinNotifier.zip'
-  homepage 'http://kmikael.github.io/FeedbinNotifier'
+  url "https://github.com/kmikael/FeedbinNotifier/releases/download/v#{version}/FeedbinNotifier.zip"
+  appcast 'https://github.com/kmikael/FeedbinNotifier/releases.atom'
+  name 'Feedbin Notifier'
+  homepage 'https://kmikael.github.io/FeedbinNotifier'
+  license :mit
 
-  link 'FeedbinNotifier.app'
+  app 'FeedbinNotifier.app'
 end

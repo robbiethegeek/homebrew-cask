@@ -1,9 +1,13 @@
-class Sococo < Cask
-  version '3.2.7'
-  sha256 '6772f2c2ef5c7b046612de408b79a71ed0936041fb9286785af69d862f653d1f'
+cask :v1 => 'sococo' do
+  version '3.5.17_14261'
+  sha256 '77d453cdc4bde06344c11bf48ab17604886cf4f68ae7270d12b9158327d1dea0'
 
-  url 'http://download.sococo.com/10069/Sococo_3_2_7_10069.dmg'
-  homepage 'http://www.sococo.com'
+  url "http://download.sococo.com/release/Sococo_#{version.gsub('.','_')}.dmg"
+  name 'Sococo'
+  homepage 'https://www.sococo.com/'
+  license :freemium
 
-  link 'Sococo.app'
+  app 'Sococo.app'
+
+  depends_on :macos => '>= :lion'
 end
